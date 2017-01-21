@@ -2,6 +2,7 @@ from datetime import datetime
 import googlemaps
 import json
 from pprint import pprint
+import parseCVS.py
 
 k = 'AIzaSyAhTTvizt-cR4hE-7nlEy84ZNISya8VrVo'
 
@@ -73,7 +74,7 @@ def breakdown(location, time):
 
 
 
-get_coord_range("Walnut Street")
+print swag(get_coord_range("Walnut Street"), 1400)
 
 
 
