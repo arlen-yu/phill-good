@@ -1,30 +1,32 @@
 import json
-from urllib2 import urlopen
-import requests
+# import requests
+import urllib2
+from pprint import pprint
+import sqlite3
 
-limit = 69;
-url = "https://data.phila.gov/resource/sspu-uyfa.json?%24limit=10"
-
-# response = urlopen(url)
-# print response
-# data = json.loads(str(response.read()))
-response = requests.get(url)
-if response.status_code == 200:
-	data = response.json()
-	print data
-else:
-	print "f***"
+conn = sqlite3.connect('crime.db')
+c = conn.cursor()
 
 
-def swag(location, my_time):
-	crimes = {}
-	for i in data:
-		time_s = data[i]['dispatch_time']
-		time = int(time_s.strip(':').lstrip('0'))
-		r = 2
-		if 'shape' in data[i] and time <= my_time[0] and time >= my_time[1]:
-			crimes[data[i]['text_general_code']] = crimes[data[i]['text_general_code']] + 1 #what if doesn't exist?
-	return crimes
+shit = c.execute('''SELECT * FROM data WHERE shape REGEXP ''')
 
 
+# pprint(records)
+
+# def swag(location, my_time):
+# 	crimes = {}
+# 	for i in records:
+# 		# time_s = i['DISPATCH_TIME']
+# 		# time = int(time_s.strip(':').lstrip('0'))
+# 		r = 2
+# 		#if 'shape' in data[i]: #and time <= my_time[0] and time >= my_time[1]
+# 		crime = i['TEXT_GENERAL_CODE']
+# 		if crime in crimes:
+# 			crimes[crime] = crimes[crime] + 1
+# 		else:
+# 			crimes[crime] = 1
+# 		#crimes[i['TEXT_GENERAL_CODE']] = crimes[i['TEXT_GENERAL_CODE']] + 1 #what if doesn't exist?
+# 	return crimes
+
+# print swag(123, 1400)
 
