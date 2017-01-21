@@ -2,7 +2,7 @@ from datetime import datetime
 import googlemaps
 import json
 from pprint import pprint
-import parseCVS.py
+import parseCVS
 
 k = 'AIzaSyAhTTvizt-cR4hE-7nlEy84ZNISya8VrVo'
 
@@ -51,8 +51,8 @@ def get_coord_range(location):
 	lat_high = lat + 0.005000
 	lng_low = lng - 0.005000
 	lng_high = lng + 0.005000
-	range = [lat_low, lat_high, lng_low, lng_high]
-	return range
+	r = [lng_low, lng_high, lat_low, lat_high]
+	return r
 
 
 def time_range(time):
@@ -63,19 +63,24 @@ def get_crime_val(crime, location, time):
 	val = crime_levels.get(crime)
 	return num * val
 
-def breakdown(location, time):
-	total = 0
-	new_crimes = {}
-	for k in crime_levels:
-		new_crimes[k] = get_crime_val(k,location,time)
-	for k in new_crimes:
-		total = total + new_crimes.get(k)
-	return new_crimes
+def get_violent(crime_map):
+	violent_map = {'Score':0, 'Minor':0,'Aggravated Assault Firearm':0, 'Aggravated Assault No Firearm':0, 'Homicide - Criminal':0,
+'Motor Vehicle Theft':0, 'Other Assaults':0, 'Other Sex Offenses (Not Commercialized)':0, 'Rape':0, 'Robbery Firearm':0, 'Robbery No Firearm':0,'Weapon Violations':0}
+	
+	for key in crime_map:
+		if key in violent_map:
+			violent_map[key] = crime_map[key]
+		else:
+			violent_map['Minor'] = violent_map['Minor'] + crime_map[key]
+
+	return violent_map
+
+def get_crime_map(location, hr):
+	return parseCVS.crime_map(location, hr)
+
+def get_score(location, hr):
+	return get_crime_map(location, hr)['Score']
 
 
-
-print swag(get_coord_range("Walnut Street"), 1400)
-
-
-
+print get_score(get_coord_range("Walnut Street"), 23)
 
