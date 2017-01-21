@@ -37,9 +37,9 @@ k = 'AIzaSyAhTTvizt-cR4hE-7nlEy84ZNISya8VrVo'
 
 crime_levels = {'Aggravated Assault Firearm':8, 'Aggravated Assault No Firearm':5, 'All Other Offenses':2, 
 'Arson':8, 'Burglary Residential': 5, 'Burglary Non-Residential':3, 'Disorderly Conduct':3, 'DRIVING UNDER THE INFLUENCE':2,
-'Embezzlement':1, 'Forgery and Counterfeiting':1, 'Fraud': 1, 'Homicide - Criminal': 18, 'Liquor Law Violations':1,
+'Embezzlement':1, 'Forgery and Counterfeiting':1, 'Fraud': 1, 'Homicide - Criminal': 40, 'Liquor Law Violations':1,
 'Motor Vehicle Theft':5, 'Narcotic / Drug Law Violations': 5, 'Other Assaults': 7, 'Other Sex Offenses (Not Commercialized)':6,
-'Prostitution and Commercialized Vice':3, 'Public Drunkenness':2, 'Rape':10, 'Robbery Firearm':8, 'Robbery No Firearm':5,
+'Prostitution and Commercialized Vice':3, 'Public Drunkenness':2, 'Rape':20, 'Robbery Firearm':19, 'Robbery No Firearm':10,
 'Theft from Vehicle':5, 'Thefts':4, 'Vagrancy/Loitering':2, 'Vandalism/Criminal Mischief':3, 'Weapon Violations':3}
 
 def get_coord_range(location):
@@ -81,6 +81,4 @@ def get_crime_map(location, hr):
 def get_score(location, hr):
 	return get_crime_map(location, hr)['Score']
 
-
-print get_score(get_coord_range("Walnut Street"), 23)
 

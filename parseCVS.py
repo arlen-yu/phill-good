@@ -1,6 +1,5 @@
 import json
 # import requests
-import urllib2
 from pprint import pprint
 import sqlite3
 
