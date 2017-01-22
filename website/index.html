@@ -87,6 +87,7 @@
           <a href="#tab2" class="mdl-layout__tab">Health &amp; Welless</a>
           <a href="#tab3" class="mdl-layout__tab">Food &amp; Nutrition</a>
           <a href="#tab4" class="mdl-layout__tab">All</a>
+            <a href="#tab4" class="mdl-layout__tab">Crime Demo</a>
           
         </div>
       </header>
@@ -110,12 +111,20 @@
               <span class="mdl-radio__label">Correctional Facilities</span>
             </label>
               <br>
-                <div class="mdh-expandable-search mdl-cell--hide-phone">
-                <i class="material-icons">search</i>
-                <form action="#">
-                  <input type="text" placeholder="Search" size="1">
-                </form>
-              </div>
+                <form action="action_page.php">
+                          Address:<br>
+                          <input type="text" name="address" value="123 Walnut Street"><br>
+                          Time:<br>
+                          <input type="text" name="time" value="14:30"><br><br>
+                          <input type="submit" value="Submit">
+                            
+                           
+                            <div data-bttnio-id="btn-04fa09d424c45805"
+                                data-bttnio-context='{ "user_location": { "latitude": 40.6827, "longitude": -73.9754 }, "subject_location": { "latitude": 40.7382869, "longitude": -73.9823721 } }'>
+                                 <button type="button">Search</button>
+                            </div>
+                            
+                        </form>
 
               <!-- Displayed on mobile -->
               <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
@@ -286,6 +295,43 @@
         
 
      </div>  
+          
+<div class="mdl-layout__tab-panel" id="tab5">
+                 
+    <div class="android-customized-section">
+          <div class="android-customized-section-text">
+            <div class="mdl-typography--font-light mdl-typography--display-1-color-contrast">Phill in your address.</div>
+            <p class="mdl-typography--font-light">
+             <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-9">
+              <input type="radio" id="option-9" class="mdl-radio__button" name="options" value="9" checked>
+              <span class="mdl-radio__label">ALL</span>
+            </label>
+            
+              <br>
+                <div class="mdh-expandable-search mdl-cell--hide-phone">
+                <i class="material-icons">search</i>
+                <form action="#">
+                  <input type="text" placeholder="Search" size="1">
+                </form>
+              </div>
+
+              <!-- Displayed on mobile -->
+              <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+              <!-- Search button -->
+              <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+                <i class="material-icons">search</i>
+              </button> <br><br>
+              
+              <a class="twitter-timeline" href="https://twitter.com/PhillyPolice">Tweets by PhillyPolice</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+              
+            </div>
+              
+                
+           
+          </div>
+        
+
+     </div>  
               
 
         
@@ -306,4 +352,3 @@
     <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
   </body>
 </html>
-
