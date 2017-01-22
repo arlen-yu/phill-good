@@ -1,103 +1,231 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
 
-        <link rel="stylesheet" href="css/normalize.min.css">
-        <link rel="stylesheet" href="css/main.css">
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
 
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+      https://www.apache.org/licenses/LICENSE-2.0
 
-        <div class="header-container">
-            <header class="wrapper clearfix">
-                <h1 class="title">PhillSafe</h1>
-                <nav>
-                    <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">How to Use</a></li>
-                        <li><a href="#">Help</a></li>
-                    </ul>
-                </nav>
-            </header>
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Material Design Lite</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/android-desktop.png">
+      <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue_grey-red.min.css" />
+    <link rel="stylesheet" href="main.css">
+    
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 40px;
+      margin-bottom: 40px;
+      z-index: 900;
+    }
+    </style>
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
         </div>
-
-        <div class="main-container">
-            <div class="main wrapper clearfix">
-
-                <article>
-                    <header>
-                        <h1>Is your location Phillsafe?</h1>
-                        <p>Enter when and where you need to be!</p>
-                    </header>
-                    <section>
-                        <form action="action_page.php">
-                          Address:<br>
-                          <input type="text" name="address" value="123 Walnut Street"><br>
-                          Time:<br>
-                          <input type="text" name="time" value="14:30"><br><br>
-                          <input type="submit" value="Submit">
-                        </form>
-                    </section>
-                    <footer>
-                        <h3>A 2017 PennApps Hack</h3>
-                        <p>Created with love.</p>
-                    </footer>
-                </article>
-
-                <aside>
-                    <a class="twitter-timeline" href="https://twitter.com/PhillyPolice"  data-height="500px">Tweets by PhillyPolice</a> 
-                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    <script>window.twttr = (function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0],
-                        t = window.twttr || {};
-                      if (d.getElementById(id)) return t;
-                      js = d.createElement(s);
-                      js.id = id;
-                      js.src = "https://platform.twitter.com/widgets.js";
-                      fjs.parentNode.insertBefore(js, fjs);
-                      t._e = [];
-                      t.ready = function(f) {
-                        t._e.push(f);
-                      };
-                      return t;
-                    }(document, "script", "twitter-wjs"));</script>
-                </aside>
-
-            </div> <!-- #main -->
-        </div> <!-- #main-container -->
-
-        <div class="footer-container">
-            <footer class="wrapper">
-                <h3>footer</h3>
-            </footer>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          
+            <div class="mdl-cell mdl-cell--4-col"> 
+                <!-- this is just dummy columns --> 
+            </div>
+            <h3 id="title">PhillGood</h3>
+            <div class="mdl-cell mdl-cell--3-col"> 
+        <!-- this is just dummy columns --> 
+            </div>
         </div>
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        </div>
+        <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+            <div class="mdl-cell mdl-cell--3-col"> 
+                <!-- this is just dummy columns --> 
+            </div>
+          <a href="#tab1" class="mdl-layout__tab is-active">Law &amp; Justice</a>
+          <a href="#tab2" class="mdl-layout__tab">Health &amp; Welless</a>
+          <a href="#tab3" class="mdl-layout__tab">Food &amp; Nutrition</a>
+          <a href="#tab4" class="mdl-layout__tab">FAQ</a>
+          
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="mdl-layout__tab-panel is-active" id="tab1">
+        
 
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 
-        <script src="js/main.js"></script>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
-        </script>
-    </body>
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+
+                
+
+                
+                <div class = "mdl-layout__content">
+                       <h2>Hello</h2> 
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+      <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked>
+      <span class="mdl-radio__label">First</span>
+    </label>
+    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+      <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2">
+      <span class="mdl-radio__label">Second</span>
+    </label>
+                
+                </div>
+                
+    
+                
+
+
+      <div class="mdh-expandable-search mdl-cell--hide-phone">
+        <i class="material-icons">search</i>
+        <form action="#">
+          <input type="text" placeholder="Search" size="1">
+        </form>
+      </div>
+
+      <!-- Displayed on mobile -->
+      <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+      <!-- Search button -->
+      <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <br><br><br><br>
+
+
+           
+
+
+     </div>  
+          
+        <div class="mdl-layout__tab-panel" id="tab2">
+                 
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+      <div class="mdh-expandable-search mdl-cell--hide-phone">
+        <i class="material-icons">search</i>
+        <form action="#">
+          <input type="text" placeholder="Search" size="1">
+        </form>
+      </div>
+
+      <!-- Displayed on mobile -->
+      <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+      <!-- Search button -->
+      <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+              
+                
+        </div>
+          
+          
+   <div class="mdl-layout__tab-panel" id="tab3">
+                 
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+      <div class="mdh-expandable-search mdl-cell--hide-phone">
+        <i class="material-icons">search</i>
+        <form action="#">
+          <input type="text" placeholder="Search" size="1">
+        </form>
+      </div>
+
+      <!-- Displayed on mobile -->
+      <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+      <!-- Search button -->
+      <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+              
+ </div>
+        
+<div class="mdl-layout__tab-panel" id="tab4">
+                 
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+      <div class="mdh-expandable-search mdl-cell--hide-phone">
+        <i class="material-icons">search</i>
+        <form action="#">
+          <input type="text" placeholder="Search" size="1">
+        </form>
+      </div>
+
+      <!-- Displayed on mobile -->
+      <div class="mdl-layout-spacer mdl-cell--hide-tablet mdl-cell--hide-desktop"></div>
+      <!-- Search button -->
+      <button class="mdh-toggle-search mdl-button mdl-js-button mdl-button--icon mdl-cell--hide-tablet mdl-cell--hide-desktop">
+        <i class="material-icons">search</i>
+      </button>
+    </div>
+              
+ </div>
+        
+          
+ 
+          
+          
+          
+      </main>
+        
+        <footer class="mdl-mini-footer">
+  <div class="mdl-mini-footer__left-section">
+    <div class="mdl-logo">Title</div>
+    <ul class="mdl-mini-footer__link-list">
+      <li><a href="#">Help</a></li>
+      <li><a href="#">Privacy & Terms</a></li>
+    </ul>
+  </div>
+</footer>
+    </div>
+    
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
 </html>
