@@ -4,36 +4,8 @@ import json
 from pprint import pprint
 import parseCVS
 
-k = 'AIzaSyAhTTvizt-cR4hE-7nlEy84ZNISya8VrVo'
+k = 'AIzaSyB5KrR1c9rSfs2uCvtoqzB8OGwr80HNC7M'
 
-#aggravated assault firearm 8
-# Aggravated Assault No Firearm 5
-# Arson 8
-#all other offensive 2
-#Burglary Non-Residential 3
-#Burglary Residential 5
-#disorderly conduct 3
-#driving under the influence 2
-#Embezzlement 1
-#Forgery and Counterfeiting
-#fraud 0
-#Homicide - Criminal 10
-#Liquor Law Violations 1
-#motor vehicle theft 5
-#narcotic/drug law 5
-#other assaults 7
-#other sex offensive (non commercial) 6
-#prostitution  3
-#public drunkenness 2
-#rape 10
-#recovered stolen motor vehicle 0
-#robbery firearm  8
-#robbery no firearm 5
-#theft from vehicle 5
-#theft 4
-#vagrancy/loitering 2
-#vandalism/mischief 3
-#weapon violation 3
 
 crime_levels = {'Aggravated Assault Firearm':8, 'Aggravated Assault No Firearm':5, 'All Other Offenses':2, 
 'Arson':8, 'Burglary Residential': 5, 'Burglary Non-Residential':3, 'Disorderly Conduct':3, 'DRIVING UNDER THE INFLUENCE':2,
@@ -42,11 +14,16 @@ crime_levels = {'Aggravated Assault Firearm':8, 'Aggravated Assault No Firearm':
 'Prostitution and Commercialized Vice':3, 'Public Drunkenness':2, 'Rape':20, 'Robbery Firearm':19, 'Robbery No Firearm':10,
 'Theft from Vehicle':5, 'Thefts':4, 'Vagrancy/Loitering':2, 'Vandalism/Criminal Mischief':3, 'Weapon Violations':3}
 
-def get_coord_range(location):
+
+def get_coords(location):
 	gmaps = googlemaps.Client(key=k)
 	geocode_result = gmaps.geocode(location + ', Philadelphia')
 	lat = geocode_result[0]['geometry']['location']['lat']
 	lng = geocode_result[0]['geometry']['location']['lng']
+	return (lng,lat)
+
+def get_coord_range(location):
+	lng, lat = get_coords(location)
 	lat_low = lat - 0.005000
 	lat_high = lat + 0.005000
 	lng_low = lng - 0.005000
@@ -62,6 +39,29 @@ def get_crime_val(crime, location, time):
 	num = len(parseCVS.swag(crime, location, time))
 	val = crime_levels.get(crime)
 	return num * val
+
+def danger_decile(score):
+	if score < 175:
+		return 10
+	elif score < 435:
+		return 20
+	elif score < 635:
+		return 30
+	elif score < 880:
+		return 40
+	elif score < 1330:
+		return 50
+	elif score < 2165:
+		return 60
+	elif score < 2775:
+		return 70
+	elif score < 3560:
+		return 80
+	elif score < 4825:
+		return 90
+	else:
+		return 100
+
 
 def get_violent(crime_map):
 	violent_map = {'Score':0, 'Minor':0,'Aggravated Assault Firearm':0, 'Aggravated Assault No Firearm':0, 'Homicide - Criminal':0,
@@ -81,4 +81,4 @@ def get_crime_map(location, hr):
 def get_score(location, hr):
 	return get_crime_map(location, hr)['Score']
 
-
+#print get_coords("10 durfor street")

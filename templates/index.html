@@ -53,10 +53,65 @@
                     </section>
                     <div>
                         {% if danger %}
-                            <p>{{ danger }}</p>
+                            {% if danger == 10 %}
+                                <p>Your neighborhood ranks among the safest neighborhoods (top 10%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 20 %}
+                                <p>Your neighborhood ranks among the safest neighborhoods (top 20%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 30 %}
+                                <p>Your neighborhood ranks among the safest neighborhoods (top 30%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 40 %}
+                                <p>You are in a safe neighborhood (top 40%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 50 %}
+                                <p>You are in a safe neighborhood (top 50%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 60 %}
+                                <p>Your area is more dangerous than average (bottom 50%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 70 %}
+                                <p>Your area is more dangerous than average (bottom 40%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 80 %}
+                                <p>Your area is quite dangerous (bottom 30%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 90 %}
+                                <p>Your area is dangerous (bottom 20%). PhillSafe!</p>
+                            {% endif %}
+                            {% if danger == 100 %}
+                                <p>Your area is one of the most dangerous (bottom 10%) PhillSafe!</p>
+                            {% endif %}
                         {% endif %}
+                        
                         {% if violent_map %}
                             {{ violent_map }}
+                        {% endif %}
+                        <br>
+                        {% if closest_police %}
+                            <p>Your closest police station is {{ closest_police }}</p>
+                        {% endif %}
+                        {% if closest_correctional %}
+                            <p>Your closest correctional facility is {{ closest_correctional }}</p>
+                        {% endif %}
+                        {% if closest_health %}
+                            <p>Your closest health screening facility is {{ closest_health }}</p>
+                        {% endif %}
+                        {% if closest_market %}
+                            <p>Your closest farmer's market is {{ closest_market }} ({{ h_description }})</p>
+                        {% endif %}
+                        {% if closest_chinese %}
+                            <p>Your closest healthy Chinese food is {{ closest_chinese }} ({{ chinese_name }})</p>
+                        {% endif %}
+                        {% if closest_parks %}
+                            <p>Your closest park is {{ closest_parks }} ({{ parks_address }})</p>
+                        {% endif %}
+                        {% if closest_corner %}
+                            <p>Your closest corner store is {{ closest_corner }} at {{ corner_address }}</p>
+                        {% endif %}
+                        {% if closest_hcenter %}
+                            <p>Your closest health center is {{ closest_hcenter }}.</p>
                         {% endif %}
                     </div>
                     <footer>
