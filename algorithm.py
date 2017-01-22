@@ -14,7 +14,7 @@ crime_levels = {'Aggravated Assault Firearm':8, 'Aggravated Assault No Firearm':
 'Prostitution and Commercialized Vice':3, 'Public Drunkenness':2, 'Rape':20, 'Robbery Firearm':19, 'Robbery No Firearm':10,
 'Theft from Vehicle':5, 'Thefts':4, 'Vagrancy/Loitering':2, 'Vandalism/Criminal Mischief':3, 'Weapon Violations':3}
 
-
+#produces coordinates based on a given location (street)
 def get_coords(location):
 	gmaps = googlemaps.Client(key=k)
 	geocode_result = gmaps.geocode(location + ', Philadelphia')
@@ -22,6 +22,7 @@ def get_coords(location):
 	lng = geocode_result[0]['geometry']['location']['lng']
 	return (lng,lat)
 
+#produces the lat/lng range within 500 m
 def get_coord_range(location):
 	lng, lat = get_coords(location)
 	lat_low = lat - 0.005000
@@ -31,15 +32,7 @@ def get_coord_range(location):
 	r = [lng_low, lng_high, lat_low, lat_high]
 	return r
 
-
-def time_range(time):
-	pass
-
-def get_crime_val(crime, location, time):
-	num = len(parseCVS.swag(crime, location, time))
-	val = crime_levels.get(crime)
-	return num * val
-
+#produces the danger decile based on a data analysis of the danger score of all streets in philadelphia
 def danger_decile(score):
 	if score < 175:
 		return 10
@@ -62,7 +55,7 @@ def danger_decile(score):
 	else:
 		return 100
 
-
+#produces a map of the frequency of violent crimes
 def get_violent(crime_map):
 	violent_map = {'Score':0, 'Minor':0,'Aggravated Assault Firearm':0, 'Aggravated Assault No Firearm':0, 'Homicide - Criminal':0,
 'Motor Vehicle Theft':0, 'Other Assaults':0, 'Other Sex Offenses (Not Commercialized)':0, 'Rape':0, 'Robbery Firearm':0, 'Robbery No Firearm':0,'Weapon Violations':0}
@@ -72,13 +65,13 @@ def get_violent(crime_map):
 			violent_map[key] = crime_map[key]
 		else:
 			violent_map['Minor'] = violent_map['Minor'] + crime_map[key]
-
 	return violent_map
 
+#produces a map of the frequences of all crimes
 def get_crime_map(location, hr):
 	return parseCVS.crime_map(location, hr)
 
+#produces the danger score of a certain location
 def get_score(location, hr):
 	return get_crime_map(location, hr)['Score']
 
-#print get_coords("10 durfor street")

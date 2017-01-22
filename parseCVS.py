@@ -1,5 +1,3 @@
-import json
-from pprint import pprint
 import sqlite3
 
 conn = sqlite3.connect('crimes.db')

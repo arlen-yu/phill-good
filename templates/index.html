@@ -86,7 +86,13 @@
                         {% endif %}
                         
                         {% if violent_map %}
-                            {{ violent_map }}
+                            {% for key, value in violent_map.items() %}
+                            <tr>
+                                <th>{{ key }}</th>
+                                <td>{{ value}}</td>
+                            </tr>
+                            <br>
+                            {% endfor %}
                         {% endif %}
                         <br>
                         {% if closest_police %}
